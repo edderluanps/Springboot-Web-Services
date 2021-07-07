@@ -1,11 +1,14 @@
 package com.projeto.Springboot.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable{
@@ -19,6 +22,9 @@ public class User implements Serializable{
     private String emailUser;
     private String phoneUser;    
     private String passwordUser;
+    
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User() {
     }
@@ -71,6 +77,12 @@ public class User implements Serializable{
     public void setPasswordUser(String passwordUser) {
         this.passwordUser = passwordUser;
     }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+    
+    
 
     @Override
     public int hashCode() {
