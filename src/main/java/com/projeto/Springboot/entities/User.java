@@ -1,5 +1,6 @@
 package com.projeto.Springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,7 @@ public class User implements Serializable{
     private String phoneUser;    
     private String passwordUser;
     
+    @JsonIgnore  
     @OneToMany(mappedBy = "client")
     private List<Order> orders = new ArrayList<>();
 

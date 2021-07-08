@@ -1,5 +1,6 @@
 package com.projeto.Springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
@@ -20,8 +21,10 @@ public class Order implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)    
     private Long idOrder;
-    private Instant timeOrder;
     
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
+    private Instant timeOrder;
+  
     @ManyToOne
     @JoinColumn(name = "clientId")
     private User client;
