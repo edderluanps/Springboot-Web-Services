@@ -2,6 +2,7 @@ package com.projeto.Springboot.testes;
 
 import com.projeto.Springboot.entities.Order;
 import com.projeto.Springboot.entities.User;
+import com.projeto.Springboot.entities.enums.OrderStatus;
 import com.projeto.Springboot.repositories.OrderRepository;
 import com.projeto.Springboot.repositories.UserRepository;
 import java.time.Instant;
@@ -27,9 +28,9 @@ public class Testconfig implements CommandLineRunner {
         User u1 = new User(null, "Jose", "jose@email.com", "12124545", "pass123");
         User u2 = new User(null, "Mary", "mary@email.com", "759584", "yram123");
         
-        Order o1 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), u2);
-        Order o3 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), u1);
+        Order o1 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), OrderStatus.PAID, u1);
+        Order o2 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), OrderStatus.CANCELED, u2);
+        Order o3 = new Order(null, Instant.parse("2020-06-20T19:53:00Z"), OrderStatus.WAITING_PAYMENT, u1);
         
         userRepository.saveAll(Arrays.asList(u1,u2));
         
