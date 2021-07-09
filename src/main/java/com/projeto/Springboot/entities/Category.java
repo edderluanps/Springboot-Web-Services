@@ -1,12 +1,15 @@
 package com.projeto.Springboot.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "Categories")
@@ -18,6 +21,9 @@ public class Category implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCategory;
     private String name;
+    
+    @Transient
+    private Set<Products> products =new HashSet<>();
 
     public Category() {
     }
@@ -43,6 +49,10 @@ public class Category implements Serializable{
         this.name = name;
     }
 
+    public Set<Products> getProducts() {
+        return products;
+    }    
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -67,5 +77,6 @@ public class Category implements Serializable{
         }
         return true;
     }
+
     
 }
