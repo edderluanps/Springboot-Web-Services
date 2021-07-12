@@ -2,10 +2,12 @@ package com.projeto.Springboot.testes;
 
 import com.projeto.Springboot.entities.Category;
 import com.projeto.Springboot.entities.Order;
+import com.projeto.Springboot.entities.OrderItem;
 import com.projeto.Springboot.entities.Products;
 import com.projeto.Springboot.entities.User;
 import com.projeto.Springboot.entities.enums.OrderStatus;
 import com.projeto.Springboot.repositories.CategoryRepository;
+import com.projeto.Springboot.repositories.OrderItemRepository;
 import com.projeto.Springboot.repositories.OrderRepository;
 import com.projeto.Springboot.repositories.ProductRepository;
 import com.projeto.Springboot.repositories.UserRepository;
@@ -31,6 +33,9 @@ public class Testconfig implements CommandLineRunner {
     
     @Autowired
     private CategoryRepository categoryRepository;
+    
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -67,7 +72,13 @@ public class Testconfig implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1,u2));
         
         orderRepository.saveAll(Arrays.asList(o1, o2, o3));
-
+        
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPriceproduct());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p4.getPriceproduct());
+        OrderItem oi3 = new OrderItem(o1, p4, 2, p1.getPriceproduct());
+        OrderItem oi4 = new OrderItem(o1, p5, 3, p5.getPriceproduct());
+        
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
     }
     
 }
