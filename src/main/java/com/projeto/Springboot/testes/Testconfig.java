@@ -3,6 +3,7 @@ package com.projeto.Springboot.testes;
 import com.projeto.Springboot.entities.Category;
 import com.projeto.Springboot.entities.Order;
 import com.projeto.Springboot.entities.OrderItem;
+import com.projeto.Springboot.entities.Payment;
 import com.projeto.Springboot.entities.Products;
 import com.projeto.Springboot.entities.User;
 import com.projeto.Springboot.entities.enums.OrderStatus;
@@ -79,6 +80,11 @@ public class Testconfig implements CommandLineRunner {
         OrderItem oi4 = new OrderItem(o1, p5, 3, p5.getPriceproduct());
         
         orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+        
+        Payment pay1 = new Payment(null, Instant.parse("2020-06-20T19:53:00Z"), o1);
+        o1.setPayment(pay1);
+        orderRepository.save(o1);
+        
     }
     
 }
