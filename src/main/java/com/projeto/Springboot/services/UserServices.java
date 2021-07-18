@@ -2,10 +2,13 @@ package com.projeto.Springboot.services;
 
 import com.projeto.Springboot.entities.User;
 import com.projeto.Springboot.repositories.UserRepository;
+import com.projeto.Springboot.services.exception.DatabaseException;
 import com.projeto.Springboot.services.exception.ResourceNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,8 +31,16 @@ public class UserServices {
         return repository.save(obj);
     }
     
-    public void delete(Long idUser){
-        repository.deleteById(idUser);
+    public void delete(Long idUser) {
+        try {
+            repository.deleteById(idUser);
+
+        } catch (EmptyResultDataAccessException e) {
+            throw new ResourceNotFoundException(idUser);
+        } catch (DataIntegrityViolationException e){
+            throw new DatabaseException(e.getMessage());
+        }
+    
     }
 
     public User update(Long idUser, User obj){

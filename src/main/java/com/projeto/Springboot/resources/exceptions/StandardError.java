@@ -1,4 +1,4 @@
-package com.projeto.Springboot.services.exception;
+package com.projeto.Springboot.resources.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
