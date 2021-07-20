@@ -10,15 +10,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class User implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
+    private Long id;
     private String nameUser;
     private String emailUser;
     private String phoneUser;    
@@ -31,21 +33,21 @@ public class User implements Serializable{
     public User() {
     }
 
-    public User(Long idUser, String nameUser, String emailUser, String phoneUser, String passwordUser) {
+    public User(Long id, String nameUser, String emailUser, String phoneUser, String passwordUser) {
         super();
-        this.idUser = idUser;
+        this.id = id;
         this.nameUser = nameUser;
         this.emailUser = emailUser;
         this.phoneUser = phoneUser;
         this.passwordUser = passwordUser;
     }
 
-    public Long getIdUser() {
-        return idUser;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNameUser() {
@@ -89,7 +91,7 @@ public class User implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.idUser);
+        hash = 59 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -105,7 +107,7 @@ public class User implements Serializable{
             return false;
         }
         final User other = (User) obj;
-        if (!Objects.equals(this.idUser, other.idUser)) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;

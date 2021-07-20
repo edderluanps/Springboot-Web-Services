@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "Products")
+@Table(name = "products")
 public class Products implements Serializable{
 
     private static final long SerialVersionUID = 1L;

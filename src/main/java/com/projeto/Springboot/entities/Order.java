@@ -19,7 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "OrderList")
+@Table(name = "order_list")
 public class Order implements Serializable{
     
     private static final long serialVersionUID = 1L;
