@@ -1,9 +1,6 @@
 # Springboot-Web-Services
 Web Service com Springboot/JPA , desenvolvido para o curso de Desenvolvimento Completo em Java
 
-Springboot-API-Rest
-API Spring Boot + MongoDB , desenvolvido para o curso de Desenvolvimento Completo em Java
-
 Instalação
 1- Baixe o ZIP do projeto
 
