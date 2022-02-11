@@ -1,5 +1,16 @@
-# Springboot-Web-Services
+# Sobre
 Web Service com Springboot/JPA , desenvolvido para o curso de Desenvolvimento Completo em Java
+
+# Tecnologias
+
+## Back end
+* Java (JDK 8)
+* Spring Boot
+* JPA / Hibernate
+
+## Banco de dados
+* H2 (Testes)
+* Postgresql
 
 ## Instalação
 
