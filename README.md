@@ -10,7 +10,7 @@ Web Service com Springboot/JPA , desenvolvido para o curso de Desenvolvimento Co
 
 ## Banco de dados
 * H2 (Testes)
-* Postgresql
+* MySQL
 
 ## Instalação
 
